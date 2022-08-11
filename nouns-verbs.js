@@ -589,9 +589,9 @@ function shuffle(arr) {
 
 function getNounVerb() {
     const number = Math.random() > 0.5 ? "singular" : "plural";
-    let nouns_clone = shuffle(nouns[number]);
-    let verbs_clone = shuffle(verbs[number]);
-    return `${nouns_clone[0]} ${verbs_clone[0]}`;
+    let random_noun = shuffle(nouns[number])[0];
+    let random_verb = shuffle(verbs[number])[0];
+    return `${random_noun} ${random_verb}`;
 }
 
 document.getElementById("nouns-verbs-button").onclick = function(e) {
