@@ -55,11 +55,7 @@ function shuffle(arr) {
 }
 
 function getQuickPlot() {
-    let themes_clone = themes;
-    return [1, 2, 3].map(() => {
-        themes_clone = shuffle(themes_clone);
-        return themes_clone.pop();
-    });
+    return shuffle(themes).slice(0, 3);
 }
 
 document.getElementById("quick-plots-button").onclick = function(e) {
