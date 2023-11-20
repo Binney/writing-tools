@@ -47,26 +47,78 @@ const themes = [
     "Across the rooftops",
     "Breakdown of communication",
     "Starlight",
-    "Slamming a door",
+    "Slam the door",
+    "Random chance",
+    "Unlucky",
+    "A thorny problem",
+    "Just one more",
+    "Harvest",
+    "Unstable",
+    "Keep it alive",
+    "Limited space",
+    "Start with nothing",
+    "Deeper and deeper",
+    "One room",
+    "Infection",
+    "Swarm",
+    "Growth",
+    "Guardian",
+    "Last resort",
+    "Tick tock",
+    "Sisters",
+    "Goddess",
+    "Unconventional food",
+    "Flameproof",
+    "Heat death",
+    "Limits to infinity",
+    "Attic",
+    "Evil laugh",
+    "Impossible!",
+    "There's something wrong with...",
+    "Painting",
+    "Ancient script",
+    "Conspiracy",
+    "Swoop",
+    "The earth isn't round, it's...",
+    "We have to go further!",
+    "Unconventional weapon",
+    "Gone rogue",
+    "Hello and welcome",
+    "Host",
+    "Weave",
+    "Carrot",
+    "Stick",
+    "Upside down",
 ];
 
 function shuffle(arr) {
     return arr.sort(() => Math.random() > 0.5 ? 1 : -1);
 }
 
-function getQuickPlot() {
-    return shuffle(themes).slice(0, 3);
+function getQuickPlot(n) {
+    return shuffle(themes).slice(0, n);
 }
 
-document.getElementById("quick-plots-button").onclick = function(e) {
+document.getElementById("quick-plots-button-3").onclick = function(e) {
     e.preventDefault();
 
     let target = document.getElementById("quick-plots-target");
     target.innerHTML = '';
-    for (let plot of getQuickPlot()) {
+    for (let plot of getQuickPlot(3)) {
         let plot_li = document.createElement('li');
         plot_li.innerHTML = plot;
         target.appendChild(plot_li)
     }
 }
 
+document.getElementById("quick-plots-button-1").onclick = function(e) {
+    e.preventDefault();
+
+    let target = document.getElementById("quick-plots-target");
+    target.innerHTML = '';
+    for (let plot of getQuickPlot(1)) {
+        let plot_li = document.createElement('li');
+        plot_li.innerHTML = plot;
+        target.appendChild(plot_li)
+    }
+}
