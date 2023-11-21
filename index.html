@@ -30,7 +30,36 @@
             <div id="nouns-verbs-target"></div>
             <button id="nouns-verbs-button">Generate!</button>
         </div>
+        <div class="container">
+            <h2>Writing Games</h2>
+            <p>Stuck? Pick a game.</p>
+            <form id="writing-games-form">
+                <div>
+                    <label for="players">How many writers?</label>
+                    <button id="players-minus">-</button>
+                    <input type="number" name="players" id="players" required min="1" value="1" />
+                    <button id="players-plus">+</button>
+                </div>
+                <div>
+                    <label for="minutes">How many minutes?</label>
+                    <button id="minutes-minus">-</button>
+                    <input type="number" name="minutes" id="minutes" required min="1" value="5" />
+                    <button id="minutes-plus">+</button>
+                </div>
+                <div>
+                    <button type="submit" id="writing-games">Go!</button>
+                </div>
+            </form>
+            <div id="writing-games-result" class="hidden">
+                <h3 id="writing-games-heading-target"></h3>
+                <p id="writing-games-description-target"></p>
+                <p id="writing-games-timer"></p>
+                <button id="writing-games-timer-start">Start timer!</button>
+                <button id="writing-games-timer-pause" class="hidden">Pause timer</button>
+            </div>
+        </div>
         <script type="text/javascript" src="quick-plots.js"></script>
         <script type="text/javascript" src="nouns-verbs.js"></script>
+        <script type="text/javascript" src="writing-games.js"></script>
     </body>
 </html>

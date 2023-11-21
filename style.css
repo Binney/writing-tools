@@ -12,3 +12,7 @@ h1 {
     max-width: 900px;
     margin: auto;
 }
+
+.hidden {
+    display: none;
+}
