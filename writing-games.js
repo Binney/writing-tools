@@ -1,4 +1,3 @@
-let timer = 60;
 const games = [
     {
         name: "Four sentence story",
@@ -34,6 +33,9 @@ const games = [
         description: "We've all heard 'show, don't tell'. How we talk is even more important than what we say. The same goes for your narrator.<br><br>Write a story whose narrator is not telling us the whole story. Show the reader there's more to this than the narrator is letting on. Maybe they're hiding something? Is there something they're not seeing? Or that they don't know?<br><br>Use Quick Plots for a springboard if you're stuck for ideas!",
     }
 ];
+
+let timer = 60;
+let interval;
 
 document.getElementById("players-minus").onclick = function(e) {
     e.preventDefault();
@@ -82,8 +84,8 @@ function updateTime(timeLeft) {
 }
 
 document.getElementById("writing-games-form").onsubmit = function(e) {
-    console.log("here we go");
     e.preventDefault();
+    clearInterval(interval);
     const players = document.getElementById("players").value;
     const minutes = document.getElementById("minutes").value;
 
@@ -102,17 +104,20 @@ document.getElementById("writing-games-form").onsubmit = function(e) {
     if (!result.length) {
         headingTarget.innerHTML = "Sorry, no dice";
         descriptionTarget.innerHTML = "Please try different search terms"
+        document.getElementById("writing-games-timer-start").classList.add("hidden");
+        document.getElementById("writing-games-timer-pause").classList.add("hidden");
+        document.getElementById("writing-games-timer").innerHTML = "";
     } else {
-        const game = result[Math.floor(Math.random() * result.length)];
+        document.getElementById("writing-games-timer-start").classList.remove("hidden");
+        document.getElementById("writing-games-timer-pause").classList.add("hidden");
+            const game = result[Math.floor(Math.random() * result.length)];
         headingTarget.innerHTML = game.name;
         descriptionTarget.innerHTML = game.description;
         timer = minutes * 60;
         updateTime(timer);
     }
-    return false;
 }
 
-let interval;
 document.getElementById("writing-games-timer-start").onclick = function(e) {
     e.preventDefault();
     document.getElementById("writing-games-timer-start").classList.add("hidden");
